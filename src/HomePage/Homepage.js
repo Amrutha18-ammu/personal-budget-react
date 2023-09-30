@@ -1,8 +1,23 @@
 import React from 'react';
+import BudgetChart from '../BudgetChart/BudgetChart';
+import D3BudgetChart from '../D3BudgetChart/D3BudgetChart';
+import axios from 'axios';
 
-function HomePage() {
-  return (
-    <main className="container center">
+export default class HomePage extends React.Component {
+    state = {
+        myMonthlyBudget: []
+    }
+    componentDidMount() {
+        axios.get(`http://localhost:3001/budget`)
+        .then(response => { 
+            this.myMonthlyBudget = 
+            this.setState({
+                myMonthlyBudget: response.data.myMonthlyBudget
+            })
+        })
+    }
+    render() {
+    return (<main className="container center">
             <section className="section-area">
                <article className="text-area">
                    <h1 className="options-area">Stay on track with you budget</h1>
@@ -63,9 +78,9 @@ function HomePage() {
                     </p>
                 </article>
            </section>
-
+           <BudgetChart />
+           <D3BudgetChart/>
           </main>
   );
 }
-
-export default HomePage;
+}

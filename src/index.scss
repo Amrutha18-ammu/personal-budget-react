@@ -21,7 +21,6 @@ nav ul li {
   cursor: pointer;
 }
 
-
 nav ul li a {
   display: block;
   padding: 0 20px;
@@ -44,7 +43,7 @@ nav ul li a:hover {
   background-repeat: no-repeat;
   background-position: center bottom;
   padding-top: 40px;   
-  background-image: url('/public/bg.png');
+  background-image: url('/bg.png');
 }
 
 .header-budget h1, 
@@ -244,4 +243,11 @@ footer{
   height: 500px;
   position: relative;
   text-align: center;
+}
+
+.pie-chart {
+  text-align: center;
+  margin-top: 40px;
+  height: 500px;
+  width: 500px;
 }
